@@ -151,6 +151,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Colors.h" />
     <ClInclude Include="CommandList.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Pet.h" />
