@@ -1,4 +1,5 @@
 ﻿#include "pch.h"
+#include "Game.h"
 #include <functional>
 #include "UI.h"
 
@@ -10,16 +11,16 @@ const string UI::DIVISION_STRING(52, '='); /// bar 52 "=" wide;
 // ## MENUS ##
 
 // draws main menu
-void MainMenu(Pet &pet)
+void UI::MainMenu(Pet &pet)
 {
 	_DrawHeader("\u001b[0mthe world's greatest pet sim");
 }
 
 
 // draws game
-static void GameMenu(Pet &pet)
+void UI::GameMenu(Pet &pet)
 {
-	_DrawHeader("Your pet \"" + *pet.m_name + "\" | Days: {Game.DayCount} | {Game.ActionCountToday}/2 Actions");
+	_DrawHeader("Your pet \"" + pet.m_name + "\" | Days: "+to_string(Game::GetDayCount())+" | "+ to_string(Game::GetActionCountToday()) +"/2 Actions");
 }
 
 
@@ -27,7 +28,6 @@ static void GameMenu(Pet &pet)
 
 
 // ## USER INPUT & CONSOLE OUTPUT ##
-
 
 // Gets and returns input from user
 string UI::Read()

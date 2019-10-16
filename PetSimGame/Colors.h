@@ -4,7 +4,7 @@ using namespace std;
 
 // ANSI COLOR CODES: https://en.wikipedia.org/wiki/ANSI_escape_code
 
-enum ForegroundColor : unsigned int
+enum class ForegroundColor : unsigned int
 {
 	Black = 30,
 	DarkGray = 90,
@@ -24,7 +24,7 @@ enum ForegroundColor : unsigned int
 	BrightCyan = 96
 };
 
-enum BackgroundColor : unsigned int
+enum class BackgroundColor : unsigned int
 {
 	Black = 40,
 	DarkGray = 100,

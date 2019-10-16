@@ -1,68 +1,57 @@
 #pragma once
+
+#include "PetStat.h"
+#include <string>
+#include <functional>
+
+
 class Pet
 {
 private:
-	PetStat stats[];
+	vector<PetStat> m_statList;
 
 public:
 
 	// ## Members ##
 
-	PetStat hunger;
-	PetStat thirst;
-	PetStat comfort;
-	PetStat energy;
-	PetStat satisfaction;
+	PetStat m_hunger;	// how hungry pet is
+	PetStat m_thirst;	// how thirsty pet is
+	PetStat m_comfort;	// how comfortable pet it
+	PetStat m_energy;	// energy of the pet
+	PetStat m_satisfaction; // how happy is the pet?
+	string m_name;		// name of the pet
+	bool m_atHome;		// has the pet run away yet
 
 
 	// ## Constructor and Destructor ##
 
-	Pet()
-	{
-		hunger = PetStat("Hunger", hungerStatTags);
-		thirst = PetStat("Thirst", thirstStatTags);
-		comfort = PetStat("Comfort", comfortStatTags);
-		energy = PetStat("Energy", energyStatTags);
-		satisfaction = PetStat("Satisfaction", satisfactionStatTags);
-	}
+	Pet();
 
 	~Pet();
 
 
-	const static string hungerStatTags[] = new string[]{
-			"Stuffed",
-			"Full",
-			"Peckish",
-			"Hungry",
-			"Starving"
-	};
-	const static string thirstStatTags[] = new string[]{
-		"Sated",
-		"Quenched",
-		"Thirsty",
-		"Parched",
-		"Dehydrated"
-	};
-	const static string comfortStatTags[] = new string[]{
-		"Floating",
-		"Comfortable",
-		"Unbothered",
-		"Uncomfortable",
-		"Restless"
-	};
-	const static string energyStatTags[] = new string[]{
-		"Hyper",
-		"Energetic",
-		"Relaxed",
-		"Tired",
-		"Exausted"
-	};
-	const static string satisfactionStatTags[] = new string[]{
-		"Overjoyed",
-		"Happy",
-		"Content",
-		"Disheartened",
-		"Anguished"
-	};
+	// ## Methods ##
+
+	void ForEachStat(function<void(PetStat&)>);	// performs an action with each stat
+
+	void Feed();	// feed pet
+	void Water();	// give pet water
+	void Walk();	// walk pet
+	void Play();	// play with pet
+	void Nap();		// let pet name
+	void Cuddle();	// cuddle the pet
+
+	void MidDayUpdate();	// update stats based on mid day
+	void EndOfDayUpdate();	// update stats based on end of day
+
+private:
+
+	// ## Private Tag List Reference ##
+
+	const static vector<string> hungerStatTagList;
+	const static vector<string> thirstStatTagList;
+	const static vector<string> comfortStatTagList;
+	const static vector<string> energyStatTagList;
+	const static vector<string> satisfactionStatTagList;
 };
 

@@ -2,7 +2,8 @@
 #include "PetStat.h"
 
 
-PetStat::PetStat(string &name, vector<string> &tagList)
+
+PetStat::PetStat(string name, const vector<string> &tagList)
 {
 	m_name = &name;
 	m_tagList = &tagList;

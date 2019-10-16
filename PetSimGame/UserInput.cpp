@@ -13,7 +13,7 @@ string UserInput::String()
 }
 
 // Gets a input from user that conforms to predicate. Set value inside of predicate
-void UserInput::Custom(string retryMessage, function<bool(string&)> mutable predicate)
+void UserInput::Custom(string retryMessage, function<bool(string&)> predicate)
 {
 	// Stays in a loop until the user enters a valid input
 	while (true)
@@ -165,4 +165,9 @@ void UserInput::Command(CommandList commandList, string retryMessage)
 		return commandList.Call(stringInput); /// true if successful, and will stop asking user
 	});
 	
+}
+
+void UserInput::WaitForKey()
+{
+	getchar();
 }

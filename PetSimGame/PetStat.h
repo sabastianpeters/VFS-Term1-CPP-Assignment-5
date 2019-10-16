@@ -16,8 +16,8 @@ public:
 
 	// ## Constructors & Deconstructors ##
 
-	PetStat() =delete;
-	PetStat(string &name, vector<string> &tags);
+	PetStat() {} // NOTE: This is required because Pet constructor needs a default PetSet constructor. I tried to get rid of it but I couldn't figure it out
+	PetStat(string name, const vector<string> &tags);
 
 	~PetStat();
 

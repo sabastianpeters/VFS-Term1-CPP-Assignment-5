@@ -34,5 +34,6 @@ public:
 	static float Float(string retryMessage = DEFAULT_RETRY_MESSAGE);							// Returns a valid float input from user
 	static bool YesNo(string retryMessage = DEFAULT_RETRY_MESSAGE);								// Returns boolean yes / no answer from user
 	static void Command(CommandList commandList, string retryMessage = "Unknown command");		// Gets a command from user
+	static void WaitForKey();	// hangs program until key press
 };
 

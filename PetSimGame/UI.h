@@ -2,7 +2,6 @@
 #include <string>
 #include "Colors.h"
 #include "Pet.h"
-#include "PetStat.h"
 #include "CommandList.h"
 #include "StringFormatting.h"
 #include <iostream>
@@ -33,8 +32,8 @@ public:
 
 	// ## MENUs ##
 
-	static void MainMenu(Pet &pet); // draws main menu
-	static void GameMenu(Pet &pet); // draws game
+	static void MainMenu(Pet&); // draws main menu
+	static void GameMenu(Pet&); // draws game
 
 	// ## USER INPUT & CONSOLE OUTPUT ##
 
