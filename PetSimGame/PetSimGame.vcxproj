@@ -156,6 +156,7 @@
     <ClInclude Include="pch.h" />
     <ClInclude Include="Pet.h" />
     <ClInclude Include="PetStat.h" />
+    <ClInclude Include="StringFormatting.h" />
     <ClInclude Include="UI.h" />
     <ClInclude Include="UserInput.h" />
   </ItemGroup>
