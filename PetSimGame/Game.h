@@ -18,9 +18,9 @@ public:
 	static CommandList gameCommands;
 
 	// the current menu to draw and the commands to go with them
-	static CommandList currentCommands;
+	static CommandList* currentCommands;
 	static function<void(Pet&)> currentMenu;
-	static Pet currentPet;
+	static Pet* currentPet;
 
 	static int actionCount;	// how many action have user preformed?
 

@@ -5,7 +5,7 @@
 
 PetStat::PetStat(string name, const vector<string> &tagList)
 {
-	m_name = &name;
+	m_name = new string(name);
 	m_tagList = &tagList;
 }
 
@@ -33,7 +33,7 @@ PetStat::operator int() const
 // addition operator (friend so private members can be access in definition)
 PetStat operator+(PetStat &stat, int const &i)
 {
-	stat.m_value += stat;
+	stat.m_value += i;
 	if (stat.m_value < 0)
 		stat.m_value = 0;
 	if (255 < stat.m_value)

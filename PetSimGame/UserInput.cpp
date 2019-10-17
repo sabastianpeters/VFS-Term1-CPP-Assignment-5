@@ -9,7 +9,10 @@ const string UserInput::ERROR_PREFIX = "Invalid input";
 // gets string input
 string UserInput::String()
 {
-	return string();
+	string input;
+	cout << "\u001b[" << (int)ForegroundColor::BrightCyan << "m";
+	getline(cin, input);
+	return input;
 }
 
 // Gets a input from user that conforms to predicate. Set value inside of predicate
@@ -130,7 +133,7 @@ bool UserInput::YesNo(string retryMessage)
 {
 	bool boolValue = false;
 
-	UserInput::Custom(retryMessage, [&, boolValue](string & stringInput) mutable {
+	UserInput::Custom(retryMessage, [&boolValue](string & stringInput) mutable {
 
 		// compares all in lowercase so case doesn't matter
 		string_to_lower(stringInput);
@@ -169,5 +172,5 @@ void UserInput::Command(CommandList commandList, string retryMessage)
 
 void UserInput::WaitForKey()
 {
-	getchar();
+	_getch();
 }

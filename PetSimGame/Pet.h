@@ -8,7 +8,7 @@
 class Pet
 {
 private:
-	vector<PetStat> m_statList;
+	vector<PetStat*> m_statList;
 
 public:
 

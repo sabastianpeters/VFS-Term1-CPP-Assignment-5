@@ -6,16 +6,13 @@
 #include "pch.h"
 #include "Game.h"
 #include "UserInput.h"
+#include <iostream>
 
 // Reguired to get a handle of console output and enable colors
 #include "Windows.h"
 #include "ProcessEnv.h"
 
 using namespace std;
-
-
-
-
 
 
 
@@ -37,8 +34,8 @@ int main()
 	while (true)
 	{
 		system("CLS");
-		Game::currentMenu(Game::currentPet);
-		UI::DrawCommands(Game::currentCommands);
-		UserInput::Command(Game::currentCommands);
+		Game::currentMenu(*Game::currentPet);
+		UI::DrawCommands(*Game::currentCommands);
+		UserInput::Command(*Game::currentCommands);
 	}
 }

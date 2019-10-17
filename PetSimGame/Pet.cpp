@@ -53,12 +53,12 @@ Pet::Pet()
 	m_energy = PetStat("Energy", energyStatTagList);
 	m_satisfaction = PetStat("Satisfaction", satisfactionStatTagList);
 
-	m_statList = vector<PetStat>();
-	m_statList.push_back(m_hunger);
-	m_statList.push_back(m_thirst);
-	m_statList.push_back(m_comfort);
-	m_statList.push_back(m_energy);
-	m_statList.push_back(m_satisfaction);
+	m_statList = vector<PetStat*>();
+	m_statList.push_back(&m_hunger);
+	m_statList.push_back(&m_thirst);
+	m_statList.push_back(&m_comfort);
+	m_statList.push_back(&m_energy);
+	m_statList.push_back(&m_satisfaction);
 }
 
 
@@ -70,7 +70,7 @@ Pet::~Pet()
 void Pet::ForEachStat(function<void(PetStat&)> action)
 {
 	for(auto it = m_statList.begin(); it != m_statList.end(); ++it) /// iterates over stats
-		action(*it); /// passes current stat to action
+		action(**it); /// passes current stat to action
 }
 
 void Pet::Feed()

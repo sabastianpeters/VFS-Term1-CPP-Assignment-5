@@ -4,6 +4,7 @@
 #include "StringFormatting.h"
 #include <string>
 #include <functional>
+#include "conio.h"
 using namespace std;
 
 class UserInput

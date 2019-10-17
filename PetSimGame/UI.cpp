@@ -21,6 +21,12 @@ void UI::MainMenu(Pet &pet)
 void UI::GameMenu(Pet &pet)
 {
 	_DrawHeader("Your pet \"" + pet.m_name + "\" | Days: "+to_string(Game::GetDayCount())+" | "+ to_string(Game::GetActionCountToday()) +"/2 Actions");
+
+	cout << DIVISION_STRING << endl;
+	pet.ForEachStat([](PetStat stat) {
+		_DrawStatBar(stat);
+	});
+	cout << DIVISION_STRING << endl;
 }
 
 
@@ -32,16 +38,13 @@ void UI::GameMenu(Pet &pet)
 // Gets and returns input from user
 string UI::Read()
 {
-	string input;
-	cout << "\u001b[" << (int)ForegroundColor::BrightCyan << "m";
-	getline(cin, input);
-	return input;
+	return UserInput::String();
 }
 
 // Used for talking to user with color (no new line)
 void UI::Write(const string &str, ForegroundColor fgColor, BackgroundColor bgColor)
 {
-	cout << "\u001b[" << (int)bgColor << ":" << (int)fgColor << "m";
+	cout << "\u001b[" << (int)fgColor << "m" << str << "\u001b[0m" << endl;
 }
 
 // Used for talking to user
@@ -95,7 +98,7 @@ void UI::DrawCommands(CommandList commandList)
 void UI::_DrawHeader(string header)
 {	
 	string_to_upper(header);
-	cout <<
+	cout << "\u001b[0m" <<
 		DIVISION_STRING << endl <<
 		header << endl <<
 		DIVISION_STRING << endl;
@@ -108,7 +111,7 @@ void UI::_DrawStatBar(const PetStat &stat)
 	cout << 
 		string_pad_left(*stat.m_name, STAT_NAME_LENGTH) << ": |" <<			// Draws stat name
 		"\u001b[" << (int)_DetermineBarColor(barValue) << "m" << 			// Sets color for bar
-		string_pad_right(string(barValue, '■'), 15) << "\u001b[0m| [" <<	// Draws bar
+		string_pad_right(string(barValue, '#'), 15) << "\u001b[0m| [" <<	// Draws bar
 		stat.GetTag() << "]" << endl;										// Draws stat tag
 }
 
